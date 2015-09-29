@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-import django
-
 from __future__ import unicode_literals
 from django.db.migrations.operations.base import Operation
 from pg_fts.fields import TSVectorField
+
+import django
 
 
 __all__ = ('CreateFTSIndexOperation', 'CreateFTSTriggerOperation',
