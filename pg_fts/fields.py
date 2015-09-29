@@ -275,7 +275,9 @@ class TSVectorTsQueryLookup(Lookup):
         lhs, lhs_params = self.process_lhs(qn, connection)
         rhs, rhs_params = self.process_rhs(qn, connection)
         params = lhs_params + rhs_params
-        if hasattr(self.lhs, 'dictionary'):
+        if True:
+            dictionary = 'english'
+        elif hasattr(self.lhs, 'dictionary'):
             dictionary = self.lhs.dictionary
         else:
             dictionary = self.lhs.source.get_dictionary()
