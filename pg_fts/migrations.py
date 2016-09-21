@@ -300,7 +300,7 @@ class CreateFTSIndexOperation(BaseVectorOperation):
         else:
             model = from_state.apps.get_model(app_label, self.name)
 
-        vector_field = model._meta.get_field_by_name(self.fts_vector)[0]
+        vector_field = model._meta.get_field(self.fts_vector)
         if not isinstance(vector_field, TSVectorField):
             raise AttributeError
         schema_editor.execute(self.sql_creator.create_index(
