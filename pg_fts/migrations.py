@@ -157,7 +157,7 @@ class BaseVectorOperation(Operation):
         else:
             model = from_state.apps.get_model(app_label, self.name)
 
-        vector_field = model._meta.get_field_by_name(self.fts_vector)[0]
+        vector_field = model._meta.get_field(self.fts_vector)
         schema_editor.execute(self.forward_fn(
             model,
             vector_field
