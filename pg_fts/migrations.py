@@ -65,7 +65,7 @@ FOR EACH ROW EXECUTE PROCEDURE {model}_{fts_name}_update()"""
             raise AttributeError
 
         try:
-            dict_field = model._meta.get_field_by_name(vector_field.dictionary)[0]
+            dict_field = model._meta.get_field(vector_field.dictionary)
             dictionary = "NEW.%s::regconfig" % (
                 dict_field.get_attname_column()[1])
             fields.append('NEW.{0} <> OLD.{0}'.format(vector_field.dictionary))
@@ -92,7 +92,7 @@ FOR EACH ROW EXECUTE PROCEDURE {model}_{fts_name}_update()"""
             raise AttributeError
 
         try:
-            dict_field = model._meta.get_field_by_name(vector_field.dictionary)[0]
+            dict_field = model._meta.get_field(vector_field.dictionary)
             dictionary = "%s::regconfig" % (
                 dict_field.get_attname_column()[1])
         except:
