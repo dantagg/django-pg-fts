@@ -176,7 +176,7 @@ class TSVectorField(TSVectorBaseField):
                 )
             elif field:
                 try:
-                    t = self.model._meta.get_field_by_name(field)[0]
+                    t = self.model._meta.get_field(field)
                     if not isinstance(t, (models.CharField, models.TextField)):
                         errors.append(
                             checks.Error(
